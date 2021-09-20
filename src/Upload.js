@@ -21,7 +21,7 @@ export function Upload(){
             data.append("file", event.target.files[i]);
             data.append("name", event.target.files[i].name);
 
-            axios.post('http://localhost:5000/image/add', data)
+            axios.post(process.env.BACKEND_API+'/image/add', data)
             .then(res => {console.log(res.data)
                 setFileInfo([...fileList, {name: res.data.Key, file: res.data.Location}])
             });
