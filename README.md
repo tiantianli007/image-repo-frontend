@@ -1,72 +1,18 @@
 # Getting Started with the Image Repository App
 
-This project was built using a variety of librarys(React, NodeJS) and frameworks(Express, Axios, Multer). I also used MongoDB and AWS S3. I thought it would be easier to store the actual image in an S3 bucket and store the URL's in MongoDB which are used to actually display the images on the React page. The application allows users to upload multiple images at a time.
+This project was built using a variety of librarys(React, NodeJS) and frameworks(Express, Axios, Multer) and allows users to upload one or multiple images to an online repository. There is a gallery page that displays all the images in the repository uploaded by anyone anywhere. I used MongoDB Atlas and AWS S3 because I thought it would be easier to store the actual image in an S3 bucket and store the URL's in MongoDB which are used to actually display the images on the React page. There are two API calls the frontend can make, a GET request to get all the images in the repository and a POST request to upload an image to the repository. The backend will handle GET request by retrieving the data from MongoDB and returning a list of objects containing the image name and AWS file link. For POST requests the backend first stores the image in an amazon S3 bucket and it returns a link to the image, the link is than stored in MongoDB along with the image name.
+
+Backend Repository: https://github.com/tiantianli007/image-repo-backend
 
 ## How to use it
 
-To run this project by yourself, you just need to create a .env(there is a .env.template file that contains the nessesary fields) in the backend folder. Then you need to run "npm start" in the root directory(image-repo) as well as in the backend folder.
-
-##
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+To run this project by yourself, you just need to create a .env(there is a .env.template file that contains the nessesary fields) that you can find in the image-repo-backend and the image-repo-frontend repository. Then you need to run "npm start" in the root directory of both the frontend and backend repository.
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+I deployed my image repository with Heroku at: https://image-repo-tian.herokuapp.com
+Navigate to the Gallery to see all images that are in the repository. Navigate to upload to upload your own image! If you go back to the gallery you will see the image you just uploaded.
 
-### `npm run build` fails to minify
+### Next Steps
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Next steps would be to add users authentication and for users to have their image repositorys, currently there is only one gallery that displays all the iamges. I would also like to add the delete function, instead of having to delete it from AWS and MongoDB directly.
