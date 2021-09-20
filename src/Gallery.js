@@ -6,7 +6,7 @@ export function Gallery(){
     let [fileList, setFileInfo] = React.useState([]);
 
     React.useEffect(() => {
-        axios.get(process.env.BACKEND_API+'image')
+        axios.get(process.env.BACKEND_API+'/image')
         .then(res => {
             console.log(res.data);
             setFileInfo(res.data.map(num => ({name: num.name, file: num.file})));
