@@ -21,7 +21,7 @@ export function Upload(){
             data.append("file", event.target.files[i]);
             data.append("name", event.target.files[i].name);
 
-            axios.post('https://image-repo-tian-back.herokuapp.com/image/add', data)
+            axios.post(process.env.REACT_APP_BACKEND_URL + '/image/add', data)
             .then(res => {console.log(res.data)
                 setFileInfo([...fileList, {name: res.data.Key, file: res.data.Location}])
             });

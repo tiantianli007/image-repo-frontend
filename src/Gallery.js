@@ -6,7 +6,7 @@ export function Gallery(){
     let [fileList, setFileInfo] = React.useState([]);
 
     React.useEffect(() => {
-        axios.get('https://image-repo-tian-back.herokuapp.com/image')
+        axios.get(process.env.REACT_APP_BACKEND_URL + '/image')
         .then(res => {
             console.log(res.data);
             setFileInfo(res.data.map(num => ({name: num.name, file: num.file})));
